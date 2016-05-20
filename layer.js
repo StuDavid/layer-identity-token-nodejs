@@ -57,7 +57,7 @@ app.post('/authenticate', function(req, res) {
   try {
     jws = jsrsasign.jws.JWS.sign('RS256', header, claim, privateKey);
   } catch(e) {
-    return res.status(500).send('Could not create signature. Invalid Private Key: ' + e);
+    return res.status(500).send('Could not create signature. Invalid Private Key: ' + e + privatekey);
   }
   
   res.json({
